@@ -22,6 +22,8 @@ state = {
 ```
   1. In function component if you change the state it will only show the modified values in the state upon log eg. useState({{persons: [{name:'giri}]}}); .. the rest of the values are not merged whereas
 
+      ![image info](./assets/functional_state_log.png)
+
   2. In Class components if you do this.setState({persons: [{name:'giri}]}); it will still merge and show all the other state values as well
 
-      ![image info](./assets/functional_state_log.png)
+       ![image info](./assets/class_component_log.png)
