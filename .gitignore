@@ -35,10 +35,15 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+build/Release 
 
 # Dependency directories
-node_modules/
+todo-list
+udemy-course/node_modules/
+udemy-course/public/
+udemy-course/.gitignore/
+todo-list/node_modules/
+todo-list/public/
 jspm_packages/
 
 # TypeScript v1 declaration files
