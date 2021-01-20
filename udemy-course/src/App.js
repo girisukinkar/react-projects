@@ -12,6 +12,7 @@ const App = () => {
     otherState : 'Some other value'
   });
 
+  console.log(personsState);
   const switchNameHandler = () => {
     switchPersonsState(
       {
