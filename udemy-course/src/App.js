@@ -42,9 +42,12 @@ class App extends Component {
       <div className="App">
       <div>Hello</div>
       <button onClick={this.switchNameHandler}>Switch the name</button>  
+      <div>
       <Person click={this.switchNameHandler.bind(this,'Girish Sukinkar')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
       <Person click={this.switchNameHandler.bind(this,'Dexter Baxter')} changed={this.nameChangHandler} name={this.state.persons[1].name} age={this.state.persons[1].age}> I am the child element</Person>
       <Person name={this.state.persons[2].name} age={this.state.persons[0].age}/>
+      </div>
+   
       </div>
     )
   }
