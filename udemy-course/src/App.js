@@ -9,7 +9,8 @@ class App extends Component {
       {name: 'Dexter',age: 27},
       {name: 'John',age: 24}
     ],
-    otherState : 'Some other value'
+    otherState : 'Some other value',
+    showPersons : false
   }
 
    switchNameHandler = (newName) => {
@@ -36,17 +37,26 @@ class App extends Component {
     )
   };
 
+  togglePersonsHandler = () => {
+    this.setState({
+      showPersons: !this.state.showPersons
+    })
+  }
+
   render(){
 
     return (
       <div className="App">
       <div>Hello</div>
       <button onClick={this.switchNameHandler}>Switch the name</button>  
-      <div>
-      <Person click={this.switchNameHandler.bind(this,'Girish Sukinkar')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
-      <Person click={this.switchNameHandler.bind(this,'Dexter Baxter')} changed={this.nameChangHandler} name={this.state.persons[1].name} age={this.state.persons[1].age}> I am the child element</Person>
-      <Person name={this.state.persons[2].name} age={this.state.persons[0].age}/>
-      </div>
+      <button onClick={this.togglePersonsHandler}>Toggle Persons</button>  
+      { this.state.showPersons ? 
+        <div>
+          <Person click={this.switchNameHandler.bind(this,'Girish Sukinkar')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
+          <Person click={this.switchNameHandler.bind(this,'Dexter Baxter')} changed={this.nameChangHandler} name={this.state.persons[1].name} age={this.state.persons[1].age}> I am the child element</Person>
+          <Person name={this.state.persons[2].name} age={this.state.persons[0].age}/>
+        </div> : null
+      }
    
       </div>
     )
