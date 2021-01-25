@@ -27,3 +27,50 @@ state = {
   2. In Class components if you do this.setState({persons: [{name:'giri}]}); it will still merge and show all the other state values as well
 
        ![image info](./assets/class_component_log.png)
+
+
+## Two way binding
+Data flows from owner to child in two way binding we enforce the same value is show at both places        
+
+## How styling is implemented
+In ways we can use css in React one way is to import and other is good old fashion inline-css and also you can store it in a variable
+
+ ```javascript
+  import './Person.css'; //Way 1
+
+  const style = { //Way 2 
+    backgroundColor: #EAEBEC;
+  } 
+
+  <div style={style} />
+ ```
+
+ Whenever the component loads the css code is loaded dynamically in a  style tag. And on bonus webpack adds the prefix the selectors for as many browsers as possible
+
+
+ ## Conditionals inside the component
+
+Example 1: Using the ternary operator way. It works and is good but we can improve
+ ```javascript
+{
+  this.state.personsExists ? <div><Person /></div> : null  
+} 
+ ```
+Example 2:  Much cleaner way of outputting the elements
+ ```javascript
+render(){
+   /*Since render gets called all the time. This conditional logic makes 
+   it much clean and readable*/
+
+   let persons = null;
+
+   if(this.state.personsExists){
+     persons = (<Person/>);
+   }
+
+   return(
+     {persons}
+   )
+
+}
+ ```
