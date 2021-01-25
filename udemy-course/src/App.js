@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
+import person from './Person/Person';
 import Person from './Person/Person';
 class App extends Component {
 
   state  =  {
     persons : [
-      {name: 'Girish',age: 28},
-      {name: 'Dexter',age: 27},
-      {name: 'John',age: 24}
+      {id: '1', name: 'Girish',age: 28},
+      {id: '2', name: 'Dexter',age: 27},
+      {id: '3', name: 'John',age: 24}
     ],
     otherState : 'Some other value',
     showPersons : false
   }
 
-   switchNameHandler = (newName) => {
+  /*  switchNameHandler = (newName) => {
    this.setState(
       {
         persons : [
@@ -23,7 +24,15 @@ class App extends Component {
         ]
       }
     )
-  };
+  }; */
+
+  deleteNameHandler = (id) => {
+
+    const persons = [...this.state.persons];
+    // persons.splice(persons, id);
+    let p = persons.filter(person => person.id !== id);
+    this.setState({persons : p});
+  }
 
   nameChangHandler = (event) => {
     this.setState(
@@ -48,10 +57,13 @@ class App extends Component {
     let persons = null;
     if(this.state.showPersons){
       persons = (
+       
         <div>
-        <Person click={this.switchNameHandler.bind(this,'Girish Sukinkar')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
-        <Person click={this.switchNameHandler.bind(this,'Dexter Baxter')} changed={this.nameChangHandler} name={this.state.persons[1].name} age={this.state.persons[1].age}> I am the child element</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[0].age}/>
+           {
+          this.state.persons.map((person,index) => {
+            return <Person key={person.id} name={person.name} age={person.age} click={() => this.deleteNameHandler(person.id)} />            
+          })
+        }
       </div> 
       );
     }
@@ -61,9 +73,7 @@ class App extends Component {
       <div>Hello</div>
       <button onClick={this.switchNameHandler}>Switch the name</button>  
       <button onClick={this.togglePersonsHandler}>Toggle Persons</button>  
-      
        {persons}
-   
       </div>
     )
   }
