@@ -38,15 +38,12 @@ class App extends Component {
   
     const person = this.state.persons.findIndex(p => { return p.id === id } );
     let temp = [...this.state.persons];
-    console.log({temp});
     temp[person].name = event.target.value
     this.setState(
       {
         persons : temp
       }
     )
-
-    console.log(temp);
   };
 
   togglePersonsHandler = () => {
