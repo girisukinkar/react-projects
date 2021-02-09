@@ -76,3 +76,15 @@ render(){
  ```
 
  ## its always better to create variables and return in the JSX instead of ternary conditional rendering
+
+ ## Dynamic Styling and Class switching
+  
+```javascript
+  const style = {
+    color:'white
+  }
+
+if(<condition>)
+    style.color = 'red'
+```
+

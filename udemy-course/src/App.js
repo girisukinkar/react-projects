@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import person from './Person/Person';
 import Person from './Person/Person';
+import Validate from './Validate';
 class App extends Component {
 
   state  =  {
@@ -11,20 +12,15 @@ class App extends Component {
       {id: '3', name: 'John',age: 24}
     ],
     otherState : 'Some other value',
-    showPersons : false
+    showPersons : false,
+    userString: ''
   }
 
-  /*  switchNameHandler = (newName) => {
-   this.setState(
-      {
-        persons : [
-          {name:newName,age:12},
-          {name:'Dex',age:13},
-          {name:'jojo',age:11}
-        ]
-      }
-    )
-  }; */
+  inputNamChangeHandler = (event) => {
+    this.setState({
+      userString : event.target.value
+    })
+  }
 
   deleteNameHandler = (id) => {
 
@@ -33,6 +29,7 @@ class App extends Component {
     let p = persons.filter(person => person.id !== id);
     this.setState({persons : p});
   }
+
 
   nameChangHandler = (event,id) => {
   
@@ -54,8 +51,18 @@ class App extends Component {
 
   render(){
 
+    const style = {
+      backgroundColor: 'white',
+      font:'inherit',
+      border:'1px solid',
+      padding:'8px',
+      cursor:'pointer'
+    }
+
     let persons = null;
     if(this.state.showPersons){
+      style.backgroundColor = 'red';
+      style.color = 'white';
       persons = (
        
         <div>
@@ -69,11 +76,16 @@ class App extends Component {
       );
     }
 
+    let classes = ['red','bold'].join(' ');
+
     return (
       <div className="App">
-      <div>Hello</div>
-      <button onClick={this.switchNameHandler}>Switch the name</button>  
-      <button onClick={this.togglePersonsHandler}>Toggle Persons</button>  
+      <div className={classes}>Hello</div>
+      <input type="text" onChange={(e) => this.inputNamChangeHandler(e)} value={this.state.userString}/>
+      <Validate userString={this.state.userString} />
+      
+      <hr/>
+      <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>  
        {persons}
       </div>
     )
