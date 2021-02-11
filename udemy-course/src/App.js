@@ -77,7 +77,13 @@ class App extends Component {
     }
 
     let classes = ['red','bold'].join(' ');
-
+    //Dynamically add / assign classes
+    if(this.state.persons.length <= 2){
+      classes.push('red');
+    }
+    if(this.state.persons.length <= 1){
+      classes.push('bold');
+    }
     return (
       <div className="App">
       <div className={classes}>Hello</div>
