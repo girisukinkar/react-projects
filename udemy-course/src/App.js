@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import person from './Person/Person';
 import Person from './Person/Person';
 import Validate from './Validate';
 class App extends Component {
 
+  
   state  =  {
     persons : [
       {id: '1', name: 'Girish',age: 28},
@@ -76,7 +76,7 @@ class App extends Component {
       );
     }
 
-    let classes = ['red','bold'].join(' ');
+    let classes = ['red','bold'];
     //Dynamically add / assign classes
     if(this.state.persons.length <= 2){
       classes.push('red');
@@ -84,6 +84,7 @@ class App extends Component {
     if(this.state.persons.length <= 1){
       classes.push('bold');
     }
+    classes = classes.join(' ');
     return (
       <div className="App">
       <div className={classes}>Hello</div>
