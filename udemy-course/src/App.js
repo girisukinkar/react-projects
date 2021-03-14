@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
-import './App.css';
+import styled from 'styled-components';
+// import './App.css';
 import Person from './Person/Person';
 import Validate from './Validate';
+import styles from './App.css';
+
+const StyledButton = styled.button`
+background-color: ${props => props.alt ? 'red' : 'green'};
+font:inherit;
+border:1px solid;
+padding:8px;
+cursor:pointer;
+color:white;
+
+&:hover{
+  background-color: ${props => props.alt ? 'salmon' : 'green'};
+  color:black;
+}
+`;
+
+
+
 class App extends Component {
 
-  
+
   state  =  {
     persons : [
       {id: '1', name: 'Girish',age: 28},
@@ -47,22 +66,24 @@ class App extends Component {
     this.setState({
       showPersons: !this.state.showPersons
     })
-  }
+  };
+
+  
 
   render(){
 
-    const style = {
-      backgroundColor: 'white',
-      font:'inherit',
-      border:'1px solid',
-      padding:'8px',
-      cursor:'pointer'
-    }
+    // const style = {
+    //   backgroundColor: 'white',
+    //   font:'inherit',
+    //   border:'1px solid',
+    //   padding:'8px',
+    //   cursor:'pointer'
+    // }
 
     let persons = null;
     if(this.state.showPersons){
-      style.backgroundColor = 'red';
-      style.color = 'white';
+      // style.backgroundColor = 'red';
+      // style.color = 'white';
       persons = (
        
         <div>
@@ -76,7 +97,7 @@ class App extends Component {
       );
     }
 
-    let classes = ['red','bold'];
+    let classes = [];
     //Dynamically add / assign classes
     if(this.state.persons.length <= 2){
       classes.push('red');
@@ -86,14 +107,14 @@ class App extends Component {
     }
     classes = classes.join(' ');
     return (
-      <div className="App">
+      <div className={styles.App}>
       <div className={classes}>Hello</div>
       <input type="text" onChange={(e) => this.inputNamChangeHandler(e)} value={this.state.userString}/>
       <Validate userString={this.state.userString} />
       
       <hr/>
-      <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>  
        {persons}
+      <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>  
       </div>
     )
   }
