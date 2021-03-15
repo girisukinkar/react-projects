@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-// import './App.css';
+// import styled from 'styled-components';
 import Person from './Person/Person';
 import Validate from './Validate';
-import styles from './App.css';
+import styles from './App.module.css';
 
-const StyledButton = styled.button`
+/* const StyledButton = styled.button`
 background-color: ${props => props.alt ? 'red' : 'green'};
 font:inherit;
 border:1px solid;
@@ -19,7 +18,7 @@ color:white;
 }
 `;
 
-
+ */
 
 class App extends Component {
 
@@ -114,7 +113,8 @@ class App extends Component {
       
       <hr/>
        {persons}
-      <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>  
+      {/* <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>   */}
+      <button className={`${styles.Button} ${styles.Red}`} onClick={this.togglePersonsHandler}>Toggle Persons</button>  
       </div>
     )
   }
