@@ -176,3 +176,9 @@ Example:
 ```
 
 Now you can use className="Post" anywhere in your app and receive that styling.
+
+## ERROR HANDLING
+
+    While in development we get to see error pages with line number and reasons but in production we are unable to see or handle such things thus making an error handling component that will display the error is helpful.
+    eg. ErrorBoundary.js component
+    Note: only use it at necessary places.

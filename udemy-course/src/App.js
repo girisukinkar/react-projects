@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Person from './Person/Person';
 import Validate from './Validate';
 import styles from './App.module.css';
-
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 /* const StyledButton = styled.button`
 background-color: ${props => props.alt ? 'red' : 'green'};
 font:inherit;
@@ -89,7 +89,9 @@ class App extends Component {
           
            {
           this.state.persons.map((person,index) => {
-            return <Person key={person.id} name={person.name} age={person.age} changed={(event) => this.nameChangHandler(event,person.id)} click={() => this.deleteNameHandler(person.id)} />            
+            return <ErrorBoundary key={person.id}>
+              <Person  name={person.name} age={person.age} changed={(event) => this.nameChangHandler(event,person.id)} click={() => this.deleteNameHandler(person.id)} />            
+            </ErrorBoundary>
           })
         }
       </div> 
