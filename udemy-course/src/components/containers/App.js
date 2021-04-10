@@ -6,6 +6,7 @@ import Cockpit from '../Cockpit/Cockpit';
 
 class App extends Component {
 
+
   state  =  {
     persons : [
       {id: '1', name: 'Girish',age: 28},
@@ -48,22 +49,24 @@ class App extends Component {
     this.setState({
       showPersons: !this.state.showPersons
     })
-  }
+  };
+
+  
 
   render(){
 
-    const style = {
-      backgroundColor: 'white',
-      font:'inherit',
-      border:'1px solid',
-      padding:'8px',
-      cursor:'pointer'
-    }
+    // const style = {
+    //   backgroundColor: 'white',
+    //   font:'inherit',
+    //   border:'1px solid',
+    //   padding:'8px',
+    //   cursor:'pointer'
+    // }
 
     let persons = null;
     if(this.state.showPersons){
-      style.backgroundColor = 'red';
-      style.color = 'white';
+      // style.backgroundColor = 'red';
+      // style.color = 'white';
       persons = (
        
         <div>
@@ -86,6 +89,8 @@ class App extends Component {
       <hr/>
       <Cockpit style={style} persons={this.state.persons} clicked={this.togglePersonsHandler} />
        {persons}
+      {/* <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>   */}
+      <button className={`${styles.Button} ${styles.Red}`} onClick={this.togglePersonsHandler}>Toggle Persons</button>  
       </div>
     )
   }
