@@ -1,3 +1,5 @@
+# To run react on desired port
+Create a .env file and initialise any number to PORT, EG.  PORT=4000 
 # react-projects
 Learning react and trying out how to make mini projects to test what I understand and improve along the way
 
@@ -81,10 +83,17 @@ render(){
   
 ```javascript
   const style = {
-    color:'white
+    color:'white'
   }
 
+//Normal Method
 if(<condition>)
     style.color = 'red'
+
+    //To add multiple dynamically use array and join in the end
+    let classes = ['red','bold'];
+    classes.join(' ');
+
+// IMPORTANT NOTE: we cannot use psuedo selectors or media queries directly in inline, use a third party package called radium
 ```
 
