@@ -55,13 +55,13 @@ class App extends Component {
 
   render(){
 
-    // const style = {
-    //   backgroundColor: 'white',
-    //   font:'inherit',
-    //   border:'1px solid',
-    //   padding:'8px',
-    //   cursor:'pointer'
-    // }
+    const style = {
+      backgroundColor: 'white',
+      font:'inherit',
+      border:'1px solid',
+      padding:'8px',
+      cursor:'pointer'
+    }
 
     let persons = null;
     if(this.state.showPersons){
@@ -90,7 +90,6 @@ class App extends Component {
       <Cockpit style={style} persons={this.state.persons} clicked={this.togglePersonsHandler} />
        {persons}
       {/* <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>   */}
-      <button className={`${styles.Button} ${styles.Red}`} onClick={this.togglePersonsHandler}>Toggle Persons</button>  
       </div>
     )
   }
