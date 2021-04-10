@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import person from './Person/Person';
-import Person from './Person/Person';
-import Validate from './Validate';
+import Persons from '../Persons/Persons';
+import Validate from '../../Validate';
+import Cockpit from '../Cockpit/Cockpit';
+
 class App extends Component {
 
   state  =  {
@@ -68,30 +69,22 @@ class App extends Component {
         <div>
           
            {
-          this.state.persons.map((person,index) => {
-            return <Person key={person.id} name={person.name} age={person.age} changed={(event) => this.nameChangHandler(event,person.id)} click={() => this.deleteNameHandler(person.id)} />            
-          })
+             <Persons persons={this.state.persons} clicked={this.deleteNameHandler} changed={this.nameChangHandler} />
         }
       </div> 
       );
     }
 
-    let classes = ['red','bold'].join(' ');
-    //Dynamically add / assign classes
-    if(this.state.persons.length <= 2){
-      classes.push('red');
-    }
-    if(this.state.persons.length <= 1){
-      classes.push('bold');
-    }
+   
     return (
       <div className="App">
-      <div className={classes}>Hello</div>
+      
       <input type="text" onChange={(e) => this.inputNamChangeHandler(e)} value={this.state.userString}/>
       <Validate userString={this.state.userString} />
+
       
       <hr/>
-      <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>  
+      <Cockpit style={style} persons={this.state.persons} clicked={this.togglePersonsHandler} />
        {persons}
       </div>
     )
