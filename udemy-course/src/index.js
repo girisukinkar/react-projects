@@ -5,7 +5,7 @@ import App from './components/containers/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App appTitle="Presons Project" />
   </React.StrictMode>,
   document.getElementById('root')
 );

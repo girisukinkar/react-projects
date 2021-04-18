@@ -87,7 +87,7 @@ class App extends Component {
 
       
       <hr/>
-      <Cockpit style={style} persons={this.state.persons} clicked={this.togglePersonsHandler} />
+      <Cockpit style={style} title={this.props.appTitle} persons={this.state.persons} clicked={this.togglePersonsHandler} />
        {persons}
       {/* <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>Toggle Persons</StyledButton>   */}
       </div>
