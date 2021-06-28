@@ -19,6 +19,10 @@ class App extends Component {
       showPersons: false,
       userString: "",
     };
+
+    this.togglePersonsHandler = this.togglePersonsHandler.bind(this);
+    this.deleteNameHandler = this.deleteNameHandler.bind(this);
+    this.nameChangHandler = this.nameChangHandler.bind(this);
   }
  
 
@@ -61,6 +65,8 @@ class App extends Component {
       showPersons: !this.state.showPersons,
     });
   }
+
+
 
   render() {
     console.log('[App.js] Render');

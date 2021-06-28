@@ -7,7 +7,7 @@ class Persons extends Component {
   render() {
     const pers =  this.props.persons.map((person) => {
      
-        <Person
+        return <Person
           key={person.id}
           name={person.name}
           age={person.age}
@@ -16,8 +16,8 @@ class Persons extends Component {
         />
   
     });
-
-    return( pers);
+    console.log(pers);
+    return(pers);
   }
 }
 
