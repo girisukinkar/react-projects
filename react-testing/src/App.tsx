@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
      <CustomInput value={text} onChange={handleChange}>Input:</CustomInput>
-     <p>You types : {text ? text : '...'}</p>
+     <p>You typed : {text ? text : '...'}</p>
     </div>
   );
 }
@@ -26,7 +26,7 @@ function CustomInput({children, value, onChange}  :CustomInputProps){
   return(
     <div>
       <label htmlFor="search">{children}</label>
-      <input type="text" id="search" value={value} onChange={onChange} />
+      <input type="text" id="search" value={value} placeholder="Example" onChange={onChange} />
     </div>
   )
 }
